@@ -13,7 +13,7 @@ import java.util.concurrent.Executors;
 public class Test1 {
 
     public static void main(String[] args){
-        fun1();
+        fun2();
     }
     private static void fun1(){
         BlockingQueue<String> b=new ArrayBlockingQueue<String>(1);

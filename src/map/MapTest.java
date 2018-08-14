@@ -15,7 +15,8 @@ public class MapTest {
     @Test
     public void test(){
 //        MyHashMap<String,String> map=new MyHashMap<>();
-        Map<String,String> map=new HashMap<String,String>();
+        Map<String,String> map1=new HashMap<>();
+        MyHashMap_1<String,String> map=new MyHashMap_1<String,String>();
         map.put("12","map12");
         map.put("2","map2");
         map.put("31","map31");

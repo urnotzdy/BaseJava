@@ -2,7 +2,6 @@ package thread;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Description:线程池：线程+线程池中的任务
@@ -13,13 +12,14 @@ import java.util.concurrent.TimeUnit;
 public class ThreadPoolClass {
 
     public static void main(String[] args){
+
         //固定大小的线程池
         ExecutorService executorService= Executors.newFixedThreadPool(3);//创建3个线程池
         for(int i=0;i<10;i++) {//创建10个任务
             final int task=i;
             executorService.execute(new Runnable() {
                 @Override
-                public void run() {
+                public void run(){
                     for(int j=0;j<10;j++){//每个任务执行10次循环
                         try {
                             Thread.sleep(20);
@@ -35,26 +35,26 @@ public class ThreadPoolClass {
         System.out.println("all of 10 tasks have committed!!");
         executorService.shutdown();//当线程池中的任务做完后，关闭线程
 
-        //定时器的线程池
-        Executors.newScheduledThreadPool(3).schedule(new Runnable() {
-                @Override
-                public void run() {
-//                    System.out.println("bombing!");
-                }
-            },
-            10,
-            TimeUnit.SECONDS);
-
-        Executors.newScheduledThreadPool(3).scheduleAtFixedRate(
-                new Runnable() {
-                    @Override
-                    public void run() {
-                        System.out.println("bombing!");
-                    }
-                },
-                10,
-                2,
-                TimeUnit.SECONDS
-        );
+//        //定时器的线程池
+//        Executors.newScheduledThreadPool(3).schedule(new Runnable() {
+//                @Override
+//                public void run() {
+////                    System.out.println("bombing!");
+//                }
+//            },
+//            10,
+//            TimeUnit.SECONDS);
+//
+//        Executors.newScheduledThreadPool(3).scheduleAtFixedRate(
+//                new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        System.out.println("bombing!");
+//                    }
+//                },
+//                10,
+//                2,
+//                TimeUnit.SECONDS
+//        );
     }
 }
