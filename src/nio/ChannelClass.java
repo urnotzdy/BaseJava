@@ -1,5 +1,7 @@
 package nio;
 
+import org.junit.Test;
+
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
@@ -49,6 +51,7 @@ public class ChannelClass {
     }
 
     //使用对支持通道的类提供的getChannel()方法
+    @Test
     public void function1(){
         //创建流
         FileInputStream inputStream=null;
@@ -105,6 +108,7 @@ public class ChannelClass {
     }
 
     //使用直接缓冲区完成对文件的复制（内存映射文件）
+    @Test
     public void function2() throws IOException {
         //创建通道
         FileChannel inChannel=FileChannel.open(Paths.get("C:\\install Path\\1.jpg"), StandardOpenOption.READ);
@@ -115,13 +119,14 @@ public class ChannelClass {
         //从缓冲区中读
         byte[] dst=new byte[inBuffer.limit()];
         inBuffer.get(dst);
-        //王缓冲区中写
+        //往缓冲区中写
         outBuffer.put(dst);
         inChannel.close();
         outChannel.close();
     }
 
     //使用通道传输
+    @Test
     public void function3() throws IOException {
         FileChannel inChannel=FileChannel.open(Paths.get("C:\\install Path\\1.jpg"),StandardOpenOption.READ);
         FileChannel outChannel=FileChannel.open(Paths.get("C:\\install Path\\4.jpg"),StandardOpenOption.READ,StandardOpenOption.WRITE,StandardOpenOption.CREATE);
@@ -130,6 +135,7 @@ public class ChannelClass {
     }
 
     //使用通道传输
+    @Test
     public void function4() throws Exception {
         RandomAccessFile inFile=new RandomAccessFile("C:\\install Path\\1.jpg","rw");
         RandomAccessFile outFile=new RandomAccessFile("C:\\install Path\\5.jpg","rw");

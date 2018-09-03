@@ -137,6 +137,7 @@ public class BufferClass {
         }
     }
 
+    @Test
     public void function5() throws CharacterCodingException {
         Charset cs1=Charset.forName("GBK");
         //获取编码器
